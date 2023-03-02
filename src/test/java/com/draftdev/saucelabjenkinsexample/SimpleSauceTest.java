@@ -41,7 +41,7 @@ public class SimpleSauceTest {
         options.setBrowserVersion("latest");*/
         DesiredCapabilities desiredCap = new DesiredCapabilities();
         desiredCap.setBrowserName(System.getenv("SELENIUM_BROWSER"));        
-        desiredCap.setPlatform(System.getenv("SELENIUM_PLATFORM"));
+        desiredCap.setPlatform(Platform.fromString(System.getenv("SELENIUM_PLATFORM")));
        
         System.out.println("the browser name is:" + desiredCap.getBrowserName());
             
