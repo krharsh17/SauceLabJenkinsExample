@@ -40,9 +40,9 @@ public class SimpleSauceTest {
         options.setPlatformName("Windows 10");
         options.setBrowserVersion("latest");*/
         DesiredCapabilities desiredCap = new DesiredCapabilities();
-        desiredCap.setBrowserName(System.getenv("SELENIUM_BROWSER"));
-        desiredCap.setVersion(System.getenv("SAUCE_ONDEMAND_BROWSERS"));
-        desiredCap.setCapability(CapabilityType.PLATFORM, System.getenv("SAUCE_ONDEMAND_BROWSERS"));
+        desiredCap.setBrowserName(System.getenv("SELENIUM_BROWSER"));        
+        desiredCap.setPlatform(System.getenv("SELENIUM_PLATFORM"));
+       
         System.out.println("the browser name is:" + desiredCap.getBrowserName());
             
         Map<String, Object> sauceOptions = new HashMap<>();
