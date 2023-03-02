@@ -37,42 +37,45 @@ public class SimpleSauceTest {
     public void setup(TestInfo testInfo) throws MalformedURLException {
         
         
-        /*ChromeOptions options = new ChromeOptions();
-        options.setPlatformName("Windows 10");
-        options.setBrowserVersion("latest");*/
+        /*
+        *Set the browser and platform to be tested on using the capabilities class
+        */
         DesiredCapabilities desiredCap = new DesiredCapabilities();
         desiredCap.setBrowserName(System.getenv("SELENIUM_BROWSER"));        
-        desiredCap.setCapability("Platform","WINDOWS"); 
+        desiredCap.setCapability(System.getenv("SELENIUM_PLATFORM")); 
+        //These environmental variables are set using Jenkins and the OnDemand Driver                                
                                  
-                                 //System.getenv("SELENIUM_PLATFORM"));
        
         System.out.println("the browser name is:" + desiredCap.getBrowserName());
-            
+        
+        /*
+        *Add your username and access key found under User Settings
+        */
         Map<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         sauceOptions.put("name", testInfo.getDisplayName());
 
         desiredCap.setCapability("sauce:options", sauceOptions);
-        URL url = new URL("https://oauth-2da9thpwr-65cdf:456b155a-3c54-4341-9bd3-f128dbb12256@ondemand.eu-central-1.saucelabs.com:443/wd/hub");
-
+        
+        /*
+        * OnDemand URL found under User Settings in Account Settings
+        * The following is just an example, add your own URL
+        */
+        
+        //URL url = new URL("*****:45*****3c54-4341-9bd3-f128dbb12256@ondemand.eu-central-1.saucelabs.com:443/wd/hub");
+        URL url = new URL(); //Add your onDemand URL here or the test will not work 
+        
         driver = new RemoteWebDriver(url, desiredCap);
     }
 
-    @DisplayName("Selenium Navigation Test")
+    @DisplayName("Selenium Navigation Test")        //The name of the test
     @Test
     public void navigateAndClose() {
-        driver.navigate().to("https://www.saucedemo.com");
-        Assertions.assertEquals("Swag Labs", driver.getTitle());
-      
+        driver.navigate().to("https://www.saucedemo.com"); //Automatically navigates to this website         
+        Assertions.assertEquals("Swag Labs", driver.getTitle()); //Checks the title
     }
-    /*@Test
-    public void navigateAndClose2() {
-        driver.navigate().to("https://www.saucedemo.com");
-  
-        Assertions.assertEquals("Swag Labs", driver.getTitle());
-    }*/
-
+    
     /**
      * Custom TestWatcher for Sauce Labs projects.
      */
