@@ -63,15 +63,15 @@ public class SimpleSauceTest {
     @Test
     public void navigateAndClose() {
         driver.navigate().to("https://www.saucedemo.com");
-        Assertions.assertEquals("Swag Las", driver.getTitle());
+        Assertions.assertEquals("Swag Labs", driver.getTitle());
       
     }
-    @Test
+    /*@Test
     public void navigateAndClose2() {
         driver.navigate().to("https://www.saucedemo.com");
   
         Assertions.assertEquals("Swag Labs", driver.getTitle());
-    }
+    }*/
 
     /**
      * Custom TestWatcher for Sauce Labs projects.
