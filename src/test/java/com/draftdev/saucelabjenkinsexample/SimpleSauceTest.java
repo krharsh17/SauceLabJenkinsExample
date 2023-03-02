@@ -43,7 +43,7 @@ public class SimpleSauceTest {
         desiredCap.setBrowserName(System.getenv("SAUCE_ONDEMAND_BROWSERS"));
         desiredCap.setVersion(System.getenv("SAUCE_ONDEMAND_BROWSERS"));
         desiredCap.setCapability(CapabilityType.PLATFORM, System.getenv("SAUCE_ONDEMAND_BROWSERS"));
-
+        System.out.println("the browser name is:" + desiredCap.getBrowserName());
             
         Map<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
