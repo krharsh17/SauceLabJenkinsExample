@@ -8,7 +8,6 @@ import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
-//import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.Platform;
@@ -42,11 +41,10 @@ public class SimpleSauceTest {
         */
         DesiredCapabilities desiredCap = new DesiredCapabilities();
         desiredCap.setBrowserName(System.getenv("SELENIUM_BROWSER"));        
-        desiredCap.setCapability(System.getenv("SELENIUM_PLATFORM")); 
+        desiredCap.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM")); 
         //These environmental variables are set using Jenkins and the OnDemand Driver                                
-                                 
-       
-        System.out.println("the browser name is:" + desiredCap.getBrowserName());
+                                  
+   
         
         /*
         *Add your username and access key found under User Settings
