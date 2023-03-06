@@ -62,7 +62,7 @@ public class SimpleSauceTest {
         */
         
         //URL url = new URL("*****:45*****3c54-4341-9bd3-f128dbb12256@ondemand.eu-central-1.saucelabs.com:443/wd/hub");
-        URL url = new URL(); //Add your onDemand URL here or the test will not work 
+        URL url = new URL("https://oauth-2da9thpwr-65cdf:456b155a-3c54-4341-9bd3-f128dbb12256@ondemand.eu-central-1.saucelabs.com:443/wd/hub"); //Add your onDemand URL here or the test will not work 
         
         driver = new RemoteWebDriver(url, desiredCap);
     }
